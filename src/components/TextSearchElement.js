@@ -20,8 +20,8 @@ class TextSearchElement extends Component {
         fetch("https://api.chucknorris.io/jokes/search?query=" + query)
             .then(res => res.json())
             .then(res => {
-                this.setState({ jokes: res.result.slice(0, 5) })
-
+                if(res.result.length > 0)
+                    this.setState({ jokes: res.result.slice(0, 5) })
             })
     }
 
